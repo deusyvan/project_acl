@@ -81,7 +81,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = new User();
+        $user = User::where('id',$id)->first();
         $user->name = $request->name;
         $user->email = $request->email;
         if(!empty($request->password)){
