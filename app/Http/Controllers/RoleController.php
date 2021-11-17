@@ -15,7 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('Roles.index', [
+        return view('roles.index', [
             'roles' => $roles
         ]);
     }
@@ -27,7 +27,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('Roles.create');
+        return view('roles.create');
     }
 
     /**
@@ -40,11 +40,9 @@ class RoleController extends Controller
     {
         $role = new Role();
         $role->name = $request->name;
-        $role->email = $request->email;
-        $role->password = bcrypt($request->password);
         $role->save();
 
-        return redirect()->route('Role.index');
+        return redirect()->route('role.index');
     }
 
     /**
