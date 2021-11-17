@@ -79,12 +79,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = new Role();
+        $role = Role::where('id',$id)->first();
         $role->name = $request->name;
-        $role->email = $request->email;
-        if(!empty($request->password)){
-            $role->password = bcrypt($request->password);
-        }
         $role->save();
         return redirect()->route('role.index');
     }

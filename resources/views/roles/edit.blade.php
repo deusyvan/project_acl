@@ -9,7 +9,7 @@
 
                     <div class="card-body">
 
-                        <a class="text-success" href="{{ route('user.index') }}">&leftarrow; Voltar para a listagem</a>
+                        <a class="text-success" href="{{ route('role.index') }}">&leftarrow; Voltar para a listagem</a>
 
                         @if($errors)
                             @foreach($errors->all() as $error)
@@ -19,27 +19,15 @@
                             @endforeach
                         @endif
 
-                        <form action="{{ route('user.update', ['user' => $user->id]) }}" method="post" class="mt-4" autocomplete="off">
+                        <form action="{{ route('role.update', ['role' => $role->id]) }}" method="post" class="mt-4" autocomplete="off">
                             @csrf
                             @method('PUT')
-
                             <div class="form-group">
-                                <label for="name">Nome do Usuário</label>
-                                <input type="text" class="form-control" id="name" placeholder="Insira o nome completo do usuário"
-                                       name="name" value="{{ old('name') ?? $user->name }}">
+                                <label for="name">Nome do Perfil</label>
+                                <input type="text" class="form-control" id="name" placeholder="Insira o nome do Perfil"
+                                       name="name" value="{{ old('name') ?? $role->name }}">
                             </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="text" class="form-control" id="email" placeholder="Insira o email válido"
-                                       name="email" value="{{ old('email') ?? $user->email }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Senha</label>
-                                <input type="password" class="form-control" id="password" placeholder="Insira a senha"
-                                       name="password" value="{{ old('password') }}">
-                            </div>
-
-                            <button type="submit" class="btn btn-block btn-success">Editar Usuário</button>
+                            <button type="submit" class="btn btn-block btn-success">Editar Perfil</button>
                         </form>
                     </div>
 
